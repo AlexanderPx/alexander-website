@@ -5,28 +5,25 @@ require('./hbs/helpers');
 const puerto = process.env.PORT || 3000;
 
 app.use(express.static(__dirname + '/public'));
-
+app.use(express.static(__dirname + '/imagenes'));
 //registrar la carpeta parciales
 hbs.registerPartials(__dirname + '/views/parciales')
 
 
-
-
 app.set('view engine', 'hbs');
-
 app.get('/', function(req, res) {
     res.render('home', {
-        nombre: "Alexander",
-        anio: new Date().getFullYear(),
+        nombre: "AlExAnder",
         pagina: 'home'
     });
 });
 app.get('/about', function(req, res) {
     res.render('about', {
-        anio: new Date().getFullYear(),
+
         pagina: 'about'
     });
 });
+
 /*
 app.get('/', function(req, res) {
     //res.send('Hello World');
